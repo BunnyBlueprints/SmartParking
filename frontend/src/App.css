@@ -1,0 +1,415 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0f1117;
+  --surface: #181b24;
+  --surface2: #1f2330;
+  --border: #2a2f3d;
+  --accent: #f5c518;
+  --accent2: #3b82f6;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --text: #e8eaf0;
+  --text-dim: #7a819a;
+  --bike: #f59e0b;
+  --car: #3b82f6;
+  --truck: #8b5cf6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app { min-height: 100vh; }
+
+/* ── Header ── */
+.header {
+  background: var(--surface);
+  border-bottom: 2px solid var(--accent);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.header p {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-family: 'DM Mono', monospace;
+  margin-top: 0.2rem;
+}
+
+.quick-summary {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.summary-pill {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+  transition: border-color 0.2s;
+}
+
+.summary-pill.full { border-color: var(--danger); }
+
+.pill-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pill-count {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.summary-pill.full .pill-count { color: var(--danger); }
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-dim);
+  padding: 1rem 1.2rem;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ── Main ── */
+.main { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ── Forms ── */
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: 'DM Mono', monospace;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus { border-color: var(--accent); }
+
+.form-group select option { background: var(--surface2); }
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-danger:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover { border-color: var(--accent); }
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* ── Alerts ── */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.alert-success { background: #052e1620; border-color: var(--success); color: var(--success); }
+.alert-error { background: #3b060620; border-color: var(--danger); color: var(--danger); }
+.alert-info { background: #0c1a3520; border-color: var(--accent2); color: var(--accent2); }
+
+/* ── Slot Grid ── */
+.slot-section { margin-bottom: 2rem; }
+
+.slot-section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slot-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.slot-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.slot-card.available {
+  background: var(--surface2);
+}
+
+.slot-card.occupied {
+  background: #0f1117;
+  border-color: transparent;
+}
+
+.slot-number {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.slot-status-badge {
+  font-size: 0.68rem;
+  font-family: 'DM Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.badge-available { background: #05321620; color: var(--success); }
+.badge-occupied { background: #3b060620; color: var(--danger); }
+
+.slot-vehicle-info {
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── Table ── */
+.table-wrap { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-family: 'DM Mono', monospace;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface2); }
+
+/* ── Vehicle Type Badges ── */
+.type-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'DM Mono', monospace;
+}
+
+.type-bike { background: #f59e0b20; color: var(--bike); }
+.type-car { background: #3b82f620; color: var(--car); }
+.type-truck { background: #8b5cf620; color: var(--truck); }
+
+/* ── Receipt ── */
+.receipt {
+  background: var(--surface2);
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.receipt-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  font-family: 'DM Mono', monospace;
+  border-bottom: 1px solid var(--border);
+}
+
+.receipt-row:last-child { border-bottom: none; }
+.receipt-label { color: var(--text-dim); }
+.receipt-value { color: var(--text); font-weight: 500; }
+.receipt-total .receipt-value { color: var(--accent); font-size: 1.1rem; font-weight: 700; }
+
+/* ── Loading / Empty ── */
+.loading-text {
+  text-align: center;
+  color: var(--text-dim);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  padding: 2rem;
+}
+
+.refresh-btn-wrap { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+
+/* ── Ticket Card ── */
+.ticket-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ticket-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.ticket-vehicle {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0.2rem 0;
+}
+
+.ticket-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}

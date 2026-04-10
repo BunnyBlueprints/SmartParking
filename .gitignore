@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+**/node_modules/
+**/.env
+**/.env.*
+**/*.log
+**/coverage/
+**/dist/
+**/build/
+
+backend/parking_lot.db
+backend/parking_lot.db-*
